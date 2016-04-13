@@ -1,0 +1,36 @@
+<ul class= 'nav navbar-nav topNavBar'>
+  <li>
+    <p class="navbar-text" ng-model ="resources.population.total">
+    <img src="res/populationMenu.png" class="img-rounded" alt="population">
+    Population: {{resources.population.total}}
+    </p>
+  </li>
+
+  <li>
+    <p class="navbar-text" ng-model="resources.food.total">
+    <img src="res/foodMenu.png" class="img-rounded" alt="food">
+    Food: {{resources.food.total}}/{{resources.granary.food}}
+    </p>
+  </li>
+
+  <li>
+    <p class="navbar-text" ng-model="resources.wood.total">
+    <img src="res/woodMenu.png" class="img-rounded" alt="wood">
+    Wood: {{resources.wood.total}}/{{resources.warehouse.wood}}
+    </p>
+  </li>
+
+  <li>
+   <p class="navbar-text" ng-model="resources.clay.total">
+    <img src="res/clayMenu.png" class="img-rounded" alt="clay">
+    Clay: {{resources.clay.total}}/{{resources.warehouse.clay}}
+    </p>
+  </li>
+
+  <li>
+    <p class="navbar-text" ng-model="resources.stone.total">
+    <img src="res/stoneMenu.png" class="img-rounded" alt="stone">
+    Stone: {{resources.stone.total}}/{{resources.warehouse.stone}}
+    </p>
+  </li>
+</ul>

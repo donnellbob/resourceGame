@@ -1,0 +1,139 @@
+<html ng-app="resources" ng-controller="updateController" ng-model="resources"> 
+<header>
+<!-- JQUERY -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<!-- ANGULAR -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<!-- BOWER -->
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/angular-underscore-module/angular-underscore-module.js"></script>
+
+<!-- CONTROLLERS -->
+<script src="controllers/updateController.js"></script>
+<script src="controllers/populationController.js"></script>
+<script src="controllers/resourceController.js"></script>
+<script src="controllers/disasterController.js"></script>
+<script src="controllers/combatService.js"></script>
+<script src="controllers/warehouseGranaryController.js"></script>
+<script src="controllers/combatController.js"></script>
+<script src="gameValues.js"></script>
+
+<!-- STLYESHEET -->
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<!-- GOOGLE FONTS -->
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+</header>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class ="container-fluid">
+
+  	<!-- NAV BAR INSERT! -->
+    <div class="container" ng-include="'views/resourceNavBar.html'"></div>
+
+  </div>
+</nav>
+
+<div class="contentContainer">
+<section class="main" ng-app="resources" ng-model="menuSelected" >
+  <div class="container grid-custom">
+    <div class="row">
+    <!-- NG-include doesnt work here for some reason? -->
+      <div class="col-lg-2" >
+      	<button type="button" class="btn btn-default btn-grid" aria-label="Population Menu" ng-click="menuSelected = 'population'">
+		  <img src="res/populationMenu.png" class="img-rounded" alt="population">
+		</button>
+		<button type="button" class="btn btn-default btn-grid" aria-label="Food Menu"  ng-click="menuSelected = 'food'">
+		  <img src="res/foodMenu.png" class="img-rounded" alt="food">
+		</button>
+
+		<button type="button" class="btn btn-default btn-grid" aria-label="Wood Menu" ng-click="menuSelected = 'wood'">
+		  <img src="res/woodMenu.png" class="img-rounded" alt="wood">
+		</button>
+
+		<button type="button" class="btn btn-default btn-grid" aria-label="Clay Menu" ng-click="menuSelected = 'clay'">
+		  <img src="res/clayMenu.png" class="img-rounded" alt="clay">
+		</button>
+
+		<button type="button" class="btn btn-default btn-grid" aria-label="Stone Menu" ng-click="menuSelected = 'stone'">
+		  <img src="res/stoneMenu.png" class="img-rounded" alt="stone">
+		</button>
+
+		<button type="button" class="btn btn-default btn-grid" aria-label="Left Align" ng-click="menuSelected = 'warehouse'">
+		  <img src="res/warehouseMenu.png" class="img-rounded" alt="warehouse">
+		</button>   
+
+		<button type="button" class="btn btn-default btn-grid" aria-label="Left Align" ng-click="menuSelected = 'granary'">
+		  <img src="res/granaryMenu.png" class="img-rounded" alt="granary">
+		</button>
+
+		<button type="button" class="btn btn-default btn-grid" aria-label="Left Align" ng-click="menuSelected = 'barracks'">
+		  <img src="res/barracksMenu.png" class="img-rounded" alt="barracks">
+		</button> 
+
+		<button type="button" class="btn btn-default btn-grid" aria-label="Left Align" ng-click="menuSelected = 'combat'">
+		  <img src="res/combatMenu.png" class="img-rounded" alt="combat">
+		</button>
+
+
+      </div>
+
+
+      <!-- POPULATION SECTION -->
+      <div class="populationMenu col-lg-8" ng-show="menuSelected === 'population'" ng-include="'views/population.html'" ></div>
+   
+
+      <!-- FOOD! -->
+      <div class="foodMenu col-lg-8" ng-show="menuSelected === 'food'" ng-include="'views/food.html'"></div>
+
+
+      <!-- WOOD!!! -->
+      <div class="woodMenu col-lg-8" ng-show="menuSelected === 'wood'" ng-include="'views/wood.html'"></div>
+
+
+      <!-- CLAY!!! -->
+      <div class="clayMenu col-lg-8" ng-show="menuSelected === 'clay'" ng-include="'views/clay.html'"></div>
+
+
+      <!-- STONE!!! -->
+      <div class="stoneMenu col-lg-8" ng-show="menuSelected === 'stone'" ng-include="'views/stone.html'"></div>
+
+
+      <!-- Warehouse!!! -->
+      <div class="warehouseMenu col-lg-8" ng-show="menuSelected === 'warehouse'" ng-include="'views/warehouse.html'"></div>
+
+
+      <!-- Granary!!! -->
+      <div class="granaryMenu col-lg-8" ng-show="menuSelected === 'granary'" ng-include="'views/granary.html'"></div>
+
+
+      <!-- Barracks!!! -->
+      <div class="barracksMenu col-lg-8" ng-show="menuSelected === 'barracks'" ng-include="'views/barracks.html'"></div>
+
+
+      <!-- Combat!!! -->
+      <div class="combatMenu col-lg-8" ng-show="menuSelected === 'combat'" ng-include="'views/combat.html'"></div>
+</section>
+
+	<!-- DISASTER POP UPS! -->
+	<div class="disasterAlert" ng-include"'views/disasters.html'"></div>
+
+</div>
+</div>
+</div>
+</html>
+
+
+
+

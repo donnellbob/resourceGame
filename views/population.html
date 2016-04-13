@@ -1,0 +1,57 @@
+<span class="panelHeader">
+  <p>Total Workers: {{resources.population.total}} <!--  <i>(per 5 seconds)</i> --> <br>
+  Idle Workers: {{resources.population.idleWorkers}} <br>
+  Worker Efficiency: {{resources.population.workerEfficiency}}%
+  </p>
+  <h1> <img src="res/populationMenu.png" class="btn-grid titleButton" alt="population">Population</h1>
+</span>
+<div class = "panel panel-default">
+  <table>
+	<tr>
+	  <th><img src="res/foodMenu.png" alt="food"></th>
+	  <th><img src="res/woodMenu.png" alt="wood"></th>
+	  <th><img src="res/clayMenu.png" alt="clay"></th>
+	  <th><img src="res/stoneMenu.png" alt="stone"></th>              
+	</tr>
+	<tr>
+	  <td>-{{resources.population.workerCost.food}}</td>
+	  <td>-{{resources.population.workerCost.wood}}</td>
+	  <td>-{{resources.population.workerCost.clay}}</td>
+	  <td>-{{resources.population.workerCost.stone}}</td>
+	</tr>
+  </table>
+  <br>
+  <button type="button" class="btn btn-success" ng-hide="resources.food.total < resources.population.workerCost.food || resources.wood.total < resources.population.workerCost.wood || resources.clay.total < resources.population.workerCost.clay || resources.stone.total < resources.population.workerCost.stone" ng-controller="populationController" ng-click= "purchaseWorker()">
+	+1 Worker
+  </button>
+  <!-- IF NOT ENOUGH RESOURCES! -->
+  <button type="button" class="btn btn-warning" ng-disabled="true" ng-show="resources.food.total < resources.population.workerCost.food || resources.wood.total < resources.population.workerCost.wood || resources.clay.total < resources.population.workerCost.clay || resources.stone.total < resources.population.workerCost.stone">
+	Need more resources!
+  </button>
+</div>
+
+<div class = "panel panel-default">
+  <table>
+	<tr>
+	  <th><img src="res/foodMenu.png" alt="food"></th>
+	  <th><img src="res/woodMenu.png" alt="wood"></th>
+	  <th><img src="res/clayMenu.png" alt="clay"></th>
+	  <th><img src="res/stoneMenu.png" alt="stone"></th>              
+	</tr>
+	<tr>
+	  <td>-{{resources.population.workerEfficiencyCost.food}}</td>
+	  <td>-{{resources.population.workerEfficiencyCost.wood}}</td>
+	  <td>-{{resources.population.workerEfficiencyCost.clay}}</td>
+	  <td>-{{resources.population.workerEfficiencyCost.stone}}</td>
+	</tr>
+  </table>
+  <br>
+  <button type="button" class="btn btn-success" ng-hide="resources.food.total < resources.population.workerEfficiencyCost.food || resources.wood.total < resources.population.workerEfficiencyCost.wood || resources.clay.total < resources.population.workerEfficiencyCost.clay || resources.stone.total < resources.population.workerEfficiencyCost.stone" ng-controller="populationController" 
+  ng-click= "upgradeEfficiency()">
+	+20% Worker Efficiency
+  </button>
+  <!-- IF NOT ENOUGH RESOURCES -->
+  <button type="button" class="btn btn-warning" ng-disabled="true" ng-show="resources.food.total < resources.population.workerEfficiencyCost.food || resources.wood.total < resources.population.workerEfficiencyCost.wood || resources.clay.total < resources.population.workerEfficiencyCost.clay || resources.stone.total < resources.population.workerEfficiencyCost.stone">
+	Need more resources!
+  </button>
+</div>

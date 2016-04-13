@@ -1,0 +1,130 @@
+<div>
+<span>
+<input type="image" src="res/minus.png" class="img-rounded combatMinus" ng-controller="combatController" ng-click="downBoss()"  ng-hide ="resources.combat.currentBoss.name === resources.bossOrder[0] || resources.combat.isActive == true">
+<img src="res/bosses/{{resources.combat.currentBoss.name}}.png"  class="img-rounded bossImages" >
+<input type="image" src="res/plus.png" class="img-rounded combatPlus" ng-controller="combatController" ng-click="upBoss()" ng-hide ="resources.combat.currentBoss.name === resources.bossOrder[resources.bossOrder.length - 1] || resources.combat.isActive == true || resources.combat.currentLevel === resources.bossOrder.indexOf(resources.combat.currentBoss.name)">
+</span>
+
+<div class="progress" ng-controller="combatController">
+  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{getBossHealth()}}"
+  aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getBossHealth() + '%' ) }">
+    {{getBossHealth()}} %
+  </div>
+</div>
+
+
+<div class = "panel panel-combat">
+  <table class = "combatTable">
+    <tr>
+      <th></th>
+
+      <th><img src="res/combatUnits/clubsMen.png" alt="clubsMen"></th>
+      <th><img src="res/combatUnits/archer.png" alt="archer"></th>
+      <th><img src="res/combatUnits/horseMen.png" alt="horseMen"></th>
+      <th><img src="res/combatUnits/swordsMen.png" alt="swordsMen"></th>
+      <th><img src="res/combatUnits/catapult.png" alt="catapult"></th>
+      <th><img src="res/combatUnits/priest.png" alt="priest"></th>        
+    </tr>
+    <tr ng-show="resources.combat.isActive == false">
+      <td>You have :</td>
+      <td>{{resources.units.currentUnits[0]}}</td>
+      <td>{{resources.units.currentUnits[1]}}</td>
+      <td>{{resources.units.currentUnits[2]}}</td>
+      <td>{{resources.units.currentUnits[3]}}</td>
+      <td>{{resources.units.currentUnits[4]}}</td>
+      <td>{{resources.units.currentUnits[5]}}</td>
+    </tr>
+    <tr ng-show="resources.combat.isActive == false">
+    	<td>Sending :</td>
+    	<td><input type = "number" class = "combatInput" value = "{{resources.combat.sentArmy[0]}}" ng-model="resources.combat.sentArmy[0]"> </td>
+    	<td><input type = "number" class = "combatInput" value = "{{resources.combat.sentArmy[1]}}" ng-model="resources.combat.sentArmy[1]">  </td>
+    	<td><input type = "number" class = "combatInput" value = "{{resources.combat.sentArmy[2]}}" ng-model="resources.combat.sentArmy[2]"> </td>
+    	<td><input type = "number" class = "combatInput" value = "{{resources.combat.sentArmy[3]}}" ng-model="resources.combat.sentArmy[3]"> </td>
+    	<td><input type = "number" class = "combatInput" value = "{{resources.combat.sentArmy[4]}}" ng-model="resources.combat.sentArmy[4]"> </td>
+    	<td><input type = "number" class = "combatInput" value = "{{resources.combat.sentArmy[5]}}" ng-model="resources.combat.sentArmy[5]"> </td>
+    </tr>
+    <tr ng-show="resources.combat.isActive == true">
+    	<td> Sent Army: </td>
+    	<td>{{resources.combat.sentArmy[0]}}</td>
+    	<td>{{resources.combat.sentArmy[1]}}</td>
+    	<td>{{resources.combat.sentArmy[2]}}</td>
+    	<td>{{resources.combat.sentArmy[3]}}</td>
+    	<td>{{resources.combat.sentArmy[4]}}</td>
+    	<td>{{resources.combat.sentArmy[5]}}</td>
+
+    </tr>
+    <tr ng-show="resources.combat.isActive == true">
+    	<td> Casualties: </td>
+    	<td>{{resources.combat.currentCasualties[0]}}</td>
+    	<td>{{resources.combat.currentCasualties[1]}}</td>
+    	<td>{{resources.combat.currentCasualties[2]}}</td>
+    	<td>{{resources.combat.currentCasualties[3]}}</td>
+    	<td>{{resources.combat.currentCasualties[4]}}</td>
+    	<td>{{resources.combat.currentCasualties[5]}}</td>
+    </tr>
+
+    <!-- HP BARS FOR THE UNITS! -->
+    <tr ng-show="resources.combat.isActive == true">
+    <td></td>
+    <td>
+      <div class="progress" ng-controller="combatController">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getUnitHealth('clubsMen')}}"
+        aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getUnitHealth('clubsMen') + '%' ) }">
+          {{getUnitHealth('clubsMen')}} %
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="progress" ng-controller="combatController">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getUnitHealth('clubsMen')}}"
+        aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getUnitHealth('clubsMen') + '%' ) }">
+          {{getUnitHealth('archer')}} %
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="progress" ng-controller="combatController">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getUnitHealth('clubsMen')}}"
+        aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getUnitHealth('clubsMen') + '%' ) }">
+          {{getUnitHealth('swordsMen')}} %
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="progress" ng-controller="combatController">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getUnitHealth('clubsMen')}}"
+        aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getUnitHealth('clubsMen') + '%' ) }">
+          {{getUnitHealth('horseMen')}} %
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="progress" ng-controller="combatController">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getUnitHealth('clubsMen')}}"
+        aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getUnitHealth('clubsMen') + '%' ) }">
+          {{getUnitHealth('catapult')}} %
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="progress" ng-controller="combatController">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getUnitHealth('clubsMen')}}"
+        aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getUnitHealth('clubsMen') + '%' ) }">
+          {{getUnitHealth('priest')}} %
+        </div>
+      </div>
+    </td>
+    </tr>
+  
+
+
+  </table>
+
+   <button type="button" class="btn btn-warning" ng-disabled = "resources.combat.sentArmy[0] > resources.units.currentUnits[0] || resources.combat.sentArmy[1] > resources.units.currentUnits[1] || resources.combat.sentArmy[2] > resources.units.currentUnits[2] || resources.combat.sentArmy[3] > resources.units.currentUnits[3] || resources.combat.sentArmy[4] > resources.units.currentUnits[4] || resources.combat.sentArmy[5] > resources.units.currentUnits[5]" ng-show="resources.combat.isActive == false" ng-controller="combatController" ng-click="engageBoss()">
+    Attack!
+  </button> 
+
+</div> 
+
+
+</div>

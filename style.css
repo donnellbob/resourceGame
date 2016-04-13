@@ -1,0 +1,158 @@
+.btn-grid {
+    padding: 18px 28px;
+    font-size: 22px; 
+    line-height: normal; 
+}
+
+.btn-grid img{
+  width: 50px;
+  height: 50px;
+}
+
+.contentContainer{
+  margin-top: 68px;
+  margin-left: 100px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #F8F8F8;
+  height: 800px;
+  width: 1700px;
+}
+
+
+.main{
+	float:left;
+	margin-right: 20px;
+
+}
+
+.topNavBar{
+  font-size: 21px;
+  margin-left: -250px;
+}
+
+.topNavBar img{
+  width: 35px;
+  height: 35px;
+}
+
+.row{
+/*fixes the button grid.... and lets it flow with resize I guess*/
+  width: 1700px;
+
+}
+
+.panel-default{
+  height: 20%;
+  width: 1000px;
+  margin-left: 75px;
+  margin-bottom: 50px;
+
+}
+.panel-default img{
+  width: 60px;
+  height: 60px;
+
+}
+.panel-default table{
+  width:100%;
+  margin-left: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  display: inline;
+
+}
+.panel-default button{
+  float: right;
+  margin-right: 15px;
+}
+
+
+.panelHeader p{
+  display: inline-block;
+  font-size: 20px;
+} 
+
+.panelheader h1{
+  display: inline-block;
+  text-align: center;
+  margin-left: 140px;
+
+}
+.panelheader i{
+  font-size: 13px;
+}
+
+.disasterAlert{
+	float: right;
+	display: inline-block;
+	
+}
+
+.newAlert{
+	width: 300px;
+	display: inline-block;
+
+}
+.titleButton{
+  width: 120px;
+  height: 100px;
+}
+
+.bossImages{
+  width: 80%;
+  height: 80%;
+  display: inline-block;
+}
+
+.combatMinus{
+  width: 9%;
+  height: 9%;
+  flaot:left;
+  display: inline-block;
+}
+
+.combatPlus{
+  width: 9%;
+  height: 9%;
+  float:right;
+  display: inline-block;
+  margin-top: 285px;
+}
+
+.combatInput{
+  width: 50px;
+}
+
+
+.panel-combat{
+  height: 20%;
+  width: 1000px;
+  margin-left: 75px;
+  margin-bottom: 50px;
+
+}
+.panel-combat img{
+  width: 60px;
+  height: 60px;
+}
+
+.panel-combat table{
+  width: 81%;
+  margin-left: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  display: inline;
+
+}
+.panel-combat button{
+  float: right;
+  height : 100%;
+  width : 140px;
+}
+
+/*Disables the increment buttons on inputs boxes (I don't like them personally)*/
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

@@ -1,0 +1,27 @@
+<h1 align="center"> <img src="res/warehouseMenu.png" class="btn-grid titleButton" alt="warehouse">Warehouse</h1>
+
+<!-- Upgrade warehouse -->
+<div class = "panel panel-default">
+  <table>
+    <tr>
+      <th><img src="res/foodMenu.png" alt="food"></th>
+      <th><img src="res/woodMenu.png" alt="wood"></th>
+      <th><img src="res/clayMenu.png" alt="clay"></th>
+      <th><img src="res/stoneMenu.png" alt="stone"></th>              
+    </tr>
+    <tr>
+      <td>-{{resources.warehouse.upgradeCost.food}}</td>
+      <td>-{{resources.warehouse.upgradeCost.wood}}</td>
+      <td>-{{resources.warehouse.upgradeCost.clay}}</td>
+      <td>-{{resources.warehouse.upgradeCost.stone}}</td>
+    </tr>
+  </table>
+  <br>
+  <button type="button" class="btn btn-success" ng-hide="resources.food.total < resources.warehouse.upgradeCost.food || resources.wood.total < resources.warehouse.upgradeCost.wood || resources.clay.total < resources.warehouse.upgradeCost.clay || resources.stone.total < resources.warehouse.upgradeCost.stone" ng-controller="warehouseGranaryController" ng-click= "upgradeCapacity('warehouse')">
+    +{{resources.warehouse.nextMaxIncrease}} Storage
+  </button>
+  <!-- IF not enough resources! -->
+  <button type="button" class="btn btn-warning" ng-disabled="true" ng-show="resources.food.total < resources.warehouse.upgradeCost.food || resources.wood.total < resources.warehouse.upgradeCost.wood || resources.clay.total < resources.warehouse.upgradeCost.clay || resources.stone.total < resources.warehouse.upgradeCost.stone">
+    Need more resources!
+  </button>
+</div> 

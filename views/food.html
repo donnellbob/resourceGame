@@ -1,0 +1,38 @@
+<span class="panelHeader">
+  <p>Upkeep: {{resources.food.upkeep}}  <i>(per 5 seconds)</i> <br>
+  Current workers: 
+	  <input type="image" src="res/minus.png" ng-controller="resourceController" ng-click="minusWorker('food')" width="20" height="20" 
+	  style="margin-right: 5px;" ng-hide="resources.food.workers === 0"/>
+	    {{resources.food.workers}}  
+	  <input type="image" src="res/plus.png" ng-controller="resourceController" ng-click="plusWorker('food')" width="20" height="20" 
+	  style="margin-left: 5px;" ng-show="resources.population.idleWorkers != 0 && resources.food.availableJobs != 0"/> <br>
+  Idle Workers: {{resources.population.idleWorkers}} <br>
+  Available farm land: {{resources.food.availableJobs}}
+
+  </p>
+  <h1> <img src="res/foodMenu.png" class="btn-grid titleButton" alt="food">Food</h1>
+</span>
+<div class = "panel panel-default">
+  <table>
+    <tr>
+      <th><img src="res/foodMenu.png" alt="food"></th>
+      <th><img src="res/woodMenu.png" alt="wood"></th>
+      <th><img src="res/clayMenu.png" alt="clay"></th>
+      <th><img src="res/stoneMenu.png" alt="stone"></th>              
+    </tr>
+    <tr>
+      <td>-{{resources.food.upgradeCapacityCost.food}}</td>
+      <td>-{{resources.food.upgradeCapacityCost.wood}}</td>
+      <td>-{{resources.food.upgradeCapacityCost.clay}}</td>
+      <td>-{{resources.food.upgradeCapacityCost.stone}}</td>
+    </tr>
+  </table>
+  <br>
+  <button type="button" class="btn btn-success" ng-hide="resources.food.total < resources.food.upgradeCapacityCost.food || resources.wood.total < resources.food.upgradeCapacityCost.wood || resources.clay.total < resources.food.upgradeCapacityCost.clay || resources.stone.total < resources.food.upgradeCapacityCost.stone" ng-controller="resourceController" ng-click= "upgradeCapacity('food')">
+    +{{resources.food.capacityPerLand}} Available Farm Land
+  </button>
+  <!-- IF NOT ENOUGH RESOURCES -->
+  <button type="button" class="btn btn-warning" ng-disabled="true" ng-show="resources.food.total < resources.food.upgradeCapacityCost.food || resources.wood.total < resources.food.upgradeCapacityCost.wood || resources.clay.total < resources.food.upgradeCapacityCost.clay || resources.stone.total < resources.food.upgradeCapacityCost.stone">
+    Need more resources!
+  </button>          
+</div>

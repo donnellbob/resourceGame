@@ -1,0 +1,10 @@
+<div ng-repeat="disaster in resources.disasters.currentDisasters">
+	<div class="alert alert-danger newAlert" role="alert">
+	  <strong>{{disaster.disaster}}!</strong> {{disaster.activeMessage}}
+	</div>
+</div>
+<div ng-repeat="disaster in resources.disasters.approachingDisasters">
+	<div class="alert alert-info newAlert" role="alert">
+	  {{disaster.approachMessage}}
+	</div>
+</div>
