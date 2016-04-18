@@ -17,14 +17,33 @@
   <table class = "combatTable">
     <tr>
       <th></th>
+      <!-- COMBAT UNIT IMAGES -->
+      <th ng-hide = "resources.combat.sentArmy[0] === 0 && resources.combat.isActive == true">
+        <img src="res/combatUnits/clubsMen.png" alt="clubsMen">
+      </th>
 
-      <th><img src="res/combatUnits/clubsMen.png" alt="clubsMen"></th>
-      <th><img src="res/combatUnits/archer.png" alt="archer"></th>
-      <th><img src="res/combatUnits/horseMen.png" alt="horseMen"></th>
-      <th><img src="res/combatUnits/swordsMen.png" alt="swordsMen"></th>
-      <th><img src="res/combatUnits/catapult.png" alt="catapult"></th>
-      <th><img src="res/combatUnits/priest.png" alt="priest"></th>        
+      <th ng-hide = "resources.combat.sentArmy[1] === 0 && resources.combat.isActive == true">
+        <img src="res/combatUnits/archer.png" alt="archer">
+      </th>
+
+      <th ng-hide = "resources.combat.sentArmy[2] === 0 && resources.combat.isActive == true">
+        <img src="res/combatUnits/horseMen.png" alt="horseMen">
+      </th>
+
+      <th ng-hide = "resources.combat.sentArmy[3] === 0 && resources.combat.isActive == true">
+        <img src="res/combatUnits/swordsMen.png" alt="swordsMen">
+      </th>
+
+      <th ng-hide = "resources.combat.sentArmy[4] === 0 && resources.combat.isActive == true">
+        <img src="res/combatUnits/catapult.png" alt="catapult">
+      </th>
+
+      <th ng-hide = "resources.combat.sentArmy[5] === 0 && resources.combat.isActive == true">
+        <img src="res/combatUnits/priest.png" alt="priest">
+      </th>        
     </tr>
+
+    <!-- Current Units! -->
     <tr ng-show="resources.combat.isActive == false">
       <td>You have :</td>
       <td>{{resources.units.currentUnits[0]}}</td>
@@ -34,6 +53,9 @@
       <td>{{resources.units.currentUnits[4]}}</td>
       <td>{{resources.units.currentUnits[5]}}</td>
     </tr>
+
+
+    <!-- How many units to send! -->
     <tr ng-show="resources.combat.isActive == false">
     	<td>Sending :</td>
     	<td><input type = "number" class = "combatInput" value = "{{resources.combat.sentArmy[0]}}" ng-model="resources.combat.sentArmy[0]"> </td>
@@ -43,30 +65,35 @@
     	<td><input type = "number" class = "combatInput" value = "{{resources.combat.sentArmy[4]}}" ng-model="resources.combat.sentArmy[4]"> </td>
     	<td><input type = "number" class = "combatInput" value = "{{resources.combat.sentArmy[5]}}" ng-model="resources.combat.sentArmy[5]"> </td>
     </tr>
+
+<!-- COMBAT ACTIVE SECTION!!!! -->
+
+    <!-- Sent unit number -->
     <tr ng-show="resources.combat.isActive == true">
     	<td> Sent Army: </td>
-    	<td>{{resources.combat.sentArmy[0]}}</td>
-    	<td>{{resources.combat.sentArmy[1]}}</td>
-    	<td>{{resources.combat.sentArmy[2]}}</td>
-    	<td>{{resources.combat.sentArmy[3]}}</td>
-    	<td>{{resources.combat.sentArmy[4]}}</td>
-    	<td>{{resources.combat.sentArmy[5]}}</td>
-
+    	<td ng-hide = "resources.combat.sentArmy[0] === 0">{{resources.combat.sentArmy[0]}}</td>
+    	<td ng-hide = "resources.combat.sentArmy[1] === 0">{{resources.combat.sentArmy[1]}}</td>
+    	<td ng-hide = "resources.combat.sentArmy[2] === 0">{{resources.combat.sentArmy[2]}}</td>
+    	<td ng-hide = "resources.combat.sentArmy[3] === 0">{{resources.combat.sentArmy[3]}}</td>
+    	<td ng-hide = "resources.combat.sentArmy[4] === 0">{{resources.combat.sentArmy[4]}}</td>
+    	<td ng-hide = "resources.combat.sentArmy[5] === 0">{{resources.combat.sentArmy[5]}}</td>
     </tr>
+
+    <!-- Casualties !! -->
     <tr ng-show="resources.combat.isActive == true">
     	<td> Casualties: </td>
-    	<td>{{resources.combat.currentCasualties[0]}}</td>
-    	<td>{{resources.combat.currentCasualties[1]}}</td>
-    	<td>{{resources.combat.currentCasualties[2]}}</td>
-    	<td>{{resources.combat.currentCasualties[3]}}</td>
-    	<td>{{resources.combat.currentCasualties[4]}}</td>
-    	<td>{{resources.combat.currentCasualties[5]}}</td>
+    	<td ng-hide = "resources.combat.sentArmy[0] === 0">{{resources.combat.currentCasualties[0]}}</td>
+    	<td ng-hide = "resources.combat.sentArmy[1] === 0">{{resources.combat.currentCasualties[1]}}</td>
+    	<td ng-hide = "resources.combat.sentArmy[2] === 0">{{resources.combat.currentCasualties[2]}}</td>
+    	<td ng-hide = "resources.combat.sentArmy[3] === 0">{{resources.combat.currentCasualties[3]}}</td>
+    	<td ng-hide = "resources.combat.sentArmy[4] === 0">{{resources.combat.currentCasualties[4]}}</td>
+    	<td ng-hide = "resources.combat.sentArmy[5] === 0">{{resources.combat.currentCasualties[5]}}</td>
     </tr>
 
     <!-- HP BARS FOR THE UNITS! -->
     <tr ng-show="resources.combat.isActive == true">
     <td></td>
-    <td>
+    <td ng-hide="resources.combat.sentArmy[0] === 0">
       <div class="progress" ng-controller="combatController">
         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getUnitHealth('clubsMen')}}"
         aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getUnitHealth('clubsMen') + '%' ) }">
@@ -74,42 +101,42 @@
         </div>
       </div>
     </td>
-    <td>
+    <td ng-hide="resources.combat.sentArmy[1] === 0">
       <div class="progress" ng-controller="combatController">
-        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getUnitHealth('clubsMen')}}"
-        aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getUnitHealth('clubsMen') + '%' ) }">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getUnitHealth('archer')}}"
+        aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getUnitHealth('archer') + '%' ) }">
           {{getUnitHealth('archer')}} %
         </div>
       </div>
     </td>
-    <td>
+    <td ng-hide="resources.combat.sentArmy[2] === 0">
       <div class="progress" ng-controller="combatController">
-        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getUnitHealth('clubsMen')}}"
-        aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getUnitHealth('clubsMen') + '%' ) }">
-          {{getUnitHealth('swordsMen')}} %
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="progress" ng-controller="combatController">
-        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getUnitHealth('clubsMen')}}"
-        aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getUnitHealth('clubsMen') + '%' ) }">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getUnitHealth('horseMen')}}"
+        aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getUnitHealth('horseMen') + '%' ) }">
           {{getUnitHealth('horseMen')}} %
         </div>
       </div>
     </td>
-    <td>
+    <td ng-hide="resources.combat.sentArmy[3] === 0">
       <div class="progress" ng-controller="combatController">
-        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getUnitHealth('clubsMen')}}"
-        aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getUnitHealth('clubsMen') + '%' ) }">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getUnitHealth('swordsMen')}}"
+        aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getUnitHealth('swordsMen') + '%' ) }">
+          {{getUnitHealth('swordsMen')}} %
+        </div>
+      </div>
+    </td>
+    <td ng-hide="resources.combat.sentArmy[4] === 0">
+      <div class="progress" ng-controller="combatController">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getUnitHealth('catapult')}}"
+        aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getUnitHealth('catapult') + '%' ) }">
           {{getUnitHealth('catapult')}} %
         </div>
       </div>
     </td>
-    <td>
+    <td ng-hide="resources.combat.sentArmy[5] === 0">
       <div class="progress" ng-controller="combatController">
-        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getUnitHealth('clubsMen')}}"
-        aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getUnitHealth('clubsMen') + '%' ) }">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getUnitHealth('priest')}}"
+        aria-valuemin="0" aria-valuemax="100" ng-style="{width : ( getUnitHealth('priest') + '%' ) }">
           {{getUnitHealth('priest')}} %
         </div>
       </div>

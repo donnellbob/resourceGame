@@ -13,38 +13,38 @@ app.controller('combatController', function($scope, gameValues, _){
       for(var j = 0; j < resources.combat.sentArmy[i]; j++){
         //Add clubsmen
         if(i === 0){
-          resources.combat.attackingForce.push(resources.combatUnits.clubsMen);
+          resources.combat.attackingForce.push(jQuery.extend(true, {}, resources.combatUnits.clubsMen));
           resources.combat.totalUnitHealth[0] += resources.combatUnits.clubsMen.hp
           //console.log(resources.combatUnits.clubsMen);
         }
 
         //Add archers
         if(i === 1){
-          resources.combat.attackingForce.push(resources.combatUnits.archer);
+          resources.combat.attackingForce.push(jQuery.extend(true, {},resources.combatUnits.archer));
           resources.combat.totalUnitHealth[1] += resources.combatUnits.archer.hp
         }
 
         //Add horseMen
         if(i === 2){
-          resources.combat.attackingForce.push(resources.combatUnits.horseMen);
+          resources.combat.attackingForce.push(jQuery.extend(true, {},resources.combatUnits.horseMen));
           resources.combat.totalUnitHealth[2] += resources.combatUnits.horseMen.hp
         }
 
         //Add swordsMen
         if(i === 3){
-          resources.combat.attackingForce.push(resources.combatUnits.swordsMen);
+          resources.combat.attackingForce.push(jQuery.extend(true, {},resources.combatUnits.swordsMen));
           resources.combat.totalUnitHealth[3] += resources.combatUnits.swordsMen.hp
         }
 
         //Add catapult
         if(i === 4){
-          resources.combat.attackingForce.push(resources.combatUnits.catapult);
+          resources.combat.attackingForce.push(jQuery.extend(true, {},resources.combatUnits.catapult));
           resources.combat.totalUnitHealth[4] += resources.combatUnits.catapult.hp
         }
 
         //Add priest
         if(i === 5){
-          resources.combat.attackingForce.push(resources.combatUnits.priest);
+          resources.combat.attackingForce.push(jQuery.extend(true, {},resources.combatUnits.priest));
           resources.combat.totalUnitHealth[5] += resources.combatUnits.priest.hp
         }   
 
@@ -74,23 +74,22 @@ app.controller('combatController', function($scope, gameValues, _){
   }
 
   $scope.getUnitHealth= function(unit){
-    if(unit === "clubsMen"){
-       // console.log (resources.combat.totalUnitHealth[0]);
-       //console.log(resources.combat.sentArmy[0])
-      // console.log(resources.combatUnits.clubsMen.hp)
+    if(unit === "clubsMen" && resources.combat.sentArmy[0] != 0){
       return ((resources.combat.totalUnitHealth[0] / (resources.combat.sentArmy[0] * resources.combatUnits.clubsMen.hp)) * 100).toFixed(2);
-    }else if (unit === "archer"){
-      return (resources.combat.totalUnitHealth[1] * 100).toFixed(2);
-    }else if (unit === "swordsMen"){
-      return (resources.combat.totalUnitHealth[2] * 100).toFixed(2);
-    }else if (unit === "horseMen"){
-      return (resources.combat.totalUnitHealth[3] * 100).toFixed(2);
-    }else if (unit === "catapult"){
-      return (resources.combat.totalUnitHealth[4] * 100).toFixed(2);
-    }else if (unit === "priest"){
-      return (resources.combat.totalUnitHealth[5] * 100).toFixed(2);
+    }else if (unit === "archer" && resources.combat.sentArmy[1] != 0){
+      return ((resources.combat.totalUnitHealth[1] / (resources.combat.sentArmy[1] * resources.combatUnits.archer.hp)) * 100).toFixed(2);
+    }else if (unit === "horseMen" && resources.combat.sentArmy[2] != 0 ){
+      return ((resources.combat.totalUnitHealth[2] / (resources.combat.sentArmy[2] * resources.combatUnits.horseMen.hp)) * 100).toFixed(2);
+    }else if (unit === "swordsMen" && resources.combat.sentArmy[3] != 0 ){
+      return ((resources.combat.totalUnitHealth[3] / (resources.combat.sentArmy[3] * resources.combatUnits.swordsMen.hp)) * 100).toFixed(2);
+    }else if (unit === "catapult" && resources.combat.sentArmy[4] != 0 ){
+      return ((resources.combat.totalUnitHealth[4] / (resources.combat.sentArmy[4] * resources.combatUnits.catapult.hp)) * 100).toFixed(2);
+    }else if (unit === "priest" && resources.combat.sentArmy[5] != 0 ){
+      return ((resources.combat.totalUnitHealth[5] / (resources.combat.sentArmy[5] * resources.combatUnits.priest.hp)) * 100).toFixed(2);
     }else{
-      console.log("Error unit HP not defined!")
+      //There was no units sent :)
+      // console.log("reached 0 setters")
+      return 0;
     }
   }
 

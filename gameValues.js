@@ -22,14 +22,14 @@ app.service("gameValues", function(){
 
     //Combat Units
     combatUnits : {
-        clubsMen : {hp : 50, attack: 3,  armour : 1, armourPene : 0, priority : 1, cost : { food: 80, wood: 60, clay: 60, stone: 60}}, 
-        archer : {hp : 25, attack: 5,  armour : 1, armourPene : 0, priority : 4, cost : { food: 80, wood: 60, clay: 60, stone: 60} }, 
-        horseMen : {hp : 65, attack: 7,  armour : 2, armourPene : 4, priority : 3, cost : { food: 80, wood: 60, clay: 60, stone: 60}}, 
-        swordsMen : {hp : 180, attack: 8,  armour : 3, armourPene : 2, priority : 2, cost : { food: 80, wood: 60, clay: 60, stone: 60}}, 
-        catapult : {hp : 10, attack: 12,  armour : 1, armourPene : 5, priority : 5, cost : { food: 80, wood: 60, clay: 60, stone: 60}}, 
-        priest : {hp : 35, attack: 9,  armour : 1, armourPene : 10, priority : 6, cost : { food: 80, wood: 60, clay: 60, stone: 60}}},
+        clubsMen : {hp : 50, attack: 3,  armour : 1, armourPene : 0, priority : 1, order: 0, cost : { food: 80, wood: 60, clay: 60, stone: 60}}, 
+        archer : {hp : 25, attack: 5,  armour : 1, armourPene : 0, priority : 4, order: 1, cost : { food: 80, wood: 60, clay: 60, stone: 60} }, 
+        horseMen : {hp : 65, attack: 7,  armour : 2, armourPene : 4, priority : 3, order: 2, cost : { food: 80, wood: 60, clay: 60, stone: 60}}, 
+        swordsMen : {hp : 180, attack: 8,  armour : 3, armourPene : 2, priority : 2, order: 3, cost : { food: 80, wood: 60, clay: 60, stone: 60}}, 
+        catapult : {hp : 10, attack: 12,  armour : 1, armourPene : 5, priority : 5, order: 4,  cost : { food: 80, wood: 60, clay: 60, stone: 60}}, 
+        priest : {hp : 35, attack: 9,  armour : 1, armourPene : 10, priority : 6, order: 5, cost : { food: 80, wood: 60, clay: 60, stone: 60}}},
 
-    units : {currentUnits : [1500,0,0,0,0,0]},
+    units : {currentUnits : [150,25,10,10,15,10]},
     //Bosses
     bosses : {
         viking : {hp : 3000, name : "viking", armour : 10, attack: 25, armourPene : 1},
