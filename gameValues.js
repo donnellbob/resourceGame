@@ -59,8 +59,8 @@ app.service("gameValues", function(){
     currentDisasters : [],
     approachingDisasters : [],
 	possibleDisasters : [
-	{disaster: 'Fire', approachMessage: 'Embers fly around the city', activeMessage: 'THERE IS A FIRE!', chance: 0.02, populationSeverity: 0.01, buildingSeverity: 0.05, approach: 25, length: 15}, 
-	{disaster: 'High Winds', approachMessage: 'A LARGE GUST OF WIND APPROACHES FROM THE EAST!', activeMessage: 'A Gust of wind is sweeping through the city', chance: 0.01, populationSeverity: 0.01, buildingSeverity: 0.1, approach: 20, length: 30},
+	{disaster: 'Fire', approachMessage: 'Embers fly around the city', activeMessage: 'There is a fire!', chance: 0.02, populationSeverity: 0.01, buildingSeverity: 0.05, approach: 25, length: 15}, 
+	{disaster: 'High Winds', approachMessage: 'A large gust of wind approaches from the east', activeMessage: 'A Gust of wind is sweeping through the city', chance: 0.01, populationSeverity: 0.01, buildingSeverity: 0.1, approach: 20, length: 30},
 	{disaster: 'Cyclone', approachMessage: 'The storms are brewing in the distance', activeMessage: 'A Cyclone branches over the city', chance: 0.005, populationSeverity: 0.005, buildingSeverity: 0.03, approach: 60, length: 40},
 	{disaster: 'Thunder Storm', approachMessage: 'The storms are brewing in the distance', activeMessage: 'The skies are filled with thunder as it rains terror on the city', chance: 0.001, populationSeverity: 0.01, buildingSeverity: 0.0, approach: 35, length: 30},
 	{disaster: 'Draught', approachMessage: 'Water reserves are running low', activeMessage: 'The city suffers from a devastating draught', chance: 0.005, populationSeverity: 0.01, buildingSeverity: 0.0, approach: 50, length: 100},

@@ -1,8 +1,14 @@
 var app = angular.module('resources', ['underscore']);
 
 app.controller('updateController', function($scope, $interval, gameValues, disasterService, combatService){
+
+  if(localStorage.getItem("values") != undefined){
+    gameValues.resources = JSON.parse(localStorage.getItem("values"));
+  }
+
   $scope.resources = gameValues.resources;
   resources = gameValues.resources;
+
   //Controls curerent selected menu
   $scope.menuSelected = "population";
 
@@ -41,7 +47,8 @@ app.controller('updateController', function($scope, $interval, gameValues, disas
     if(resources.combat.isActive === true){
       combatService.attack();
     }
-
+    
+    localStorage.setItem("values", JSON.stringify(resources));
 
     disasterService.updateDisasters();
   },5000);
