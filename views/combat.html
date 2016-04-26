@@ -45,7 +45,7 @@
 
     <!-- Current Units! -->
     <tr ng-show="resources.combat.isActive == false">
-      <td>You have :</td>
+      <td>You have:</td>
       <td>{{resources.units.currentUnits[0]}}</td>
       <td>{{resources.units.currentUnits[1]}}</td>
       <td>{{resources.units.currentUnits[2]}}</td>
@@ -57,7 +57,7 @@
 
     <!-- How many units to send! -->
     <tr ng-show="resources.combat.isActive == false">
-    	<td>Sending :</td>
+    	<td>Sending:</td>
     	<td><input type = "number" class = "combatInput" value = "{{resources.combat.sentArmy[0]}}" ng-model="resources.combat.sentArmy[0]"> </td>
     	<td><input type = "number" class = "combatInput" value = "{{resources.combat.sentArmy[1]}}" ng-model="resources.combat.sentArmy[1]">  </td>
     	<td><input type = "number" class = "combatInput" value = "{{resources.combat.sentArmy[2]}}" ng-model="resources.combat.sentArmy[2]"> </td>
@@ -70,7 +70,7 @@
 
     <!-- Sent unit number -->
     <tr ng-show="resources.combat.isActive == true">
-    	<td> Sent Army: </td>
+    	<td>Sent:</td>
     	<td ng-hide = "resources.combat.sentArmy[0] === 0">{{resources.combat.sentArmy[0]}}</td>
     	<td ng-hide = "resources.combat.sentArmy[1] === 0">{{resources.combat.sentArmy[1]}}</td>
     	<td ng-hide = "resources.combat.sentArmy[2] === 0">{{resources.combat.sentArmy[2]}}</td>
@@ -81,7 +81,7 @@
 
     <!-- Casualties !! -->
     <tr ng-show="resources.combat.isActive == true">
-    	<td> Casualties: </td>
+    	<td>Casualties: </td>
     	<td ng-hide = "resources.combat.sentArmy[0] === 0">{{resources.combat.currentCasualties[0]}}</td>
     	<td ng-hide = "resources.combat.sentArmy[1] === 0">{{resources.combat.currentCasualties[1]}}</td>
     	<td ng-hide = "resources.combat.sentArmy[2] === 0">{{resources.combat.currentCasualties[2]}}</td>
@@ -143,10 +143,7 @@
     </td>
     </tr>
   
-
-
   </table>
-
    <button type="button" class="btn btn-warning" ng-disabled = "resources.combat.sentArmy[0] > resources.units.currentUnits[0] || resources.combat.sentArmy[1] > resources.units.currentUnits[1] || resources.combat.sentArmy[2] > resources.units.currentUnits[2] || resources.combat.sentArmy[3] > resources.units.currentUnits[3] || resources.combat.sentArmy[4] > resources.units.currentUnits[4] || resources.combat.sentArmy[5] > resources.units.currentUnits[5]" ng-show="resources.combat.isActive == false" ng-controller="combatController" ng-click="engageBoss()">
     Attack!
   </button> 

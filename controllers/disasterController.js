@@ -38,7 +38,6 @@ app.factory('disasterService', function(gameValues, _){
         resources.disasters.currentDisasters.splice(i, 1);
       }
     }
-
   }
   
 

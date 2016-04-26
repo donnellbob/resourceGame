@@ -9,6 +9,9 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
+<!-- Nano Scroller style sheet -->
+<link rel="stylesheet" href="modules/nanoScroller/nanoscroller.css">
+
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
@@ -27,13 +30,22 @@
 <script src="controllers/combatService.js"></script>
 <script src="controllers/warehouseGranaryController.js"></script>
 <script src="controllers/combatController.js"></script>
+<script src="controllers/barracksController.js"></script>
 <script src="gameValues.js"></script>
+<script src="modules/nanoScroller/jquery.nanoscroller.min.js"></script>
 
 <!-- STLYESHEET -->
 <link rel="stylesheet" type="text/css" href="style.css">
 
 <!-- GOOGLE FONTS -->
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+<!-- Nano scroll initaliser -->
+<script> 
+   $(".nano").nanoScroller();
+   $(".nano").nanoScroller({ flash: true });
+</script>
+
 
 </header>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -127,8 +139,7 @@
 </section>
 
 	<!-- DISASTER POP UPS! -->
-	<div class="disasterAlert" ng-include"'views/disasters.html'"></div>
-
+	<div class="disasterAlert" ng-include="'views/disasters.html'"></div>
 </div>
 </div>
 </div>

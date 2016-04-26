@@ -23,13 +23,13 @@ app.service("gameValues", function(){
     //Combat Units
     combatUnits : {
         clubsMen : {hp : 50, attack: 3,  armour : 1, armourPene : 0, priority : 1, order: 0, cost : { food: 80, wood: 60, clay: 60, stone: 60}}, 
-        archer : {hp : 25, attack: 5,  armour : 1, armourPene : 0, priority : 4, order: 1, cost : { food: 80, wood: 60, clay: 60, stone: 60} }, 
-        horseMen : {hp : 65, attack: 7,  armour : 2, armourPene : 4, priority : 3, order: 2, cost : { food: 80, wood: 60, clay: 60, stone: 60}}, 
-        swordsMen : {hp : 180, attack: 8,  armour : 3, armourPene : 2, priority : 2, order: 3, cost : { food: 80, wood: 60, clay: 60, stone: 60}}, 
-        catapult : {hp : 10, attack: 12,  armour : 1, armourPene : 5, priority : 5, order: 4,  cost : { food: 80, wood: 60, clay: 60, stone: 60}}, 
-        priest : {hp : 35, attack: 9,  armour : 1, armourPene : 10, priority : 6, order: 5, cost : { food: 80, wood: 60, clay: 60, stone: 60}}},
+        archer : {hp : 25, attack: 5,  armour : 1, armourPene : 0, priority : 4, order: 1, cost : { food: 60, wood: 90, clay: 65, stone: 60} }, 
+        horseMen : {hp : 65, attack: 7,  armour : 2, armourPene : 4, priority : 3, order: 2, cost : { food: 100, wood: 60, clay: 70, stone: 60}}, 
+        swordsMen : {hp : 180, attack: 8,  armour : 3, armourPene : 2, priority : 2, order: 3, cost : { food: 110, wood: 40, clay: 70, stone: 95}}, 
+        catapult : {hp : 10, attack: 12,  armour : 1, armourPene : 5, priority : 5, order: 4,  cost : { food: 30, wood: 150, clay: 110, stone: 50}}, 
+        priest : {hp : 35, attack: 9,  armour : 1, armourPene : 10, priority : 6, order: 5, cost : { food: 150, wood: 60, clay: 80, stone: 100}}},
 
-    units : {currentUnits : [150,25,10,10,15,10]},
+    units : {currentUnits : [0,0,0,0,0,0]},
     //Bosses
     bosses : {
         viking : {hp : 3000, name : "viking", armour : 10, attack: 25, armourPene : 1},
@@ -59,7 +59,7 @@ app.service("gameValues", function(){
     currentDisasters : [],
     approachingDisasters : [],
 	possibleDisasters : [
-	{disaster: 'Fire', approachMessage: 'Embers fly around the city', activeMessage: 'THERE IS A FIRE!', chance: 0.2, populationSeverity: 0.01, buildingSeverity: 0.05, approach: 25, length: 15}, 
+	{disaster: 'Fire', approachMessage: 'Embers fly around the city', activeMessage: 'THERE IS A FIRE!', chance: 0.02, populationSeverity: 0.01, buildingSeverity: 0.05, approach: 25, length: 15}, 
 	{disaster: 'High Winds', approachMessage: 'A LARGE GUST OF WIND APPROACHES FROM THE EAST!', activeMessage: 'A Gust of wind is sweeping through the city', chance: 0.01, populationSeverity: 0.01, buildingSeverity: 0.1, approach: 20, length: 30},
 	{disaster: 'Cyclone', approachMessage: 'The storms are brewing in the distance', activeMessage: 'A Cyclone branches over the city', chance: 0.005, populationSeverity: 0.005, buildingSeverity: 0.03, approach: 60, length: 40},
 	{disaster: 'Thunder Storm', approachMessage: 'The storms are brewing in the distance', activeMessage: 'The skies are filled with thunder as it rains terror on the city', chance: 0.001, populationSeverity: 0.01, buildingSeverity: 0.0, approach: 35, length: 30},

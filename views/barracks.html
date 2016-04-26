@@ -1,1 +1,181 @@
-barracks
+<h1 align="center"> <img src="res/barracksMenu.png" class="btn-grid titleButton" alt="barracks">Barracks</h1>
+
+<!-- REAPPLIES nano scroller to the DOM THIS IS NEEDED FOR CHROME! -->
+<script> 
+  $(".nano").nanoScroller(); 
+  $(".nano").nanoScroller({ flash: true });
+</script>
+
+
+<!-- Purchase Units -->
+<div id="sidebar" class="nano">
+<div class="nano-content">
+<div class = "panel panel-barracks">
+<h1 align="center">Clubsmen</h1>
+<hr>
+  <table>
+    <tr>
+      <th><img src="res/foodMenu.png" alt="food"></th>
+      <th><img src="res/woodMenu.png" alt="wood"></th>
+      <th><img src="res/clayMenu.png" alt="clay"></th>
+      <th><img src="res/stoneMenu.png" alt="stone"></th>              
+    </tr>
+    <tr>
+      <td>-{{resources.combatUnits.clubsMen.cost.food}}</td>
+      <td>-{{resources.combatUnits.clubsMen.cost.wood}}</td>
+      <td>-{{resources.combatUnits.clubsMen.cost.clay}}</td>
+      <td>-{{resources.combatUnits.clubsMen.cost.stone}}</td>
+    </tr>
+  </table>
+  <br>
+  <button type="button" class="btn btn-success" ng-hide="resources.food.total < resources.combatUnits.clubsMen.cost.food || resources.wood.total < resources.combatUnits.clubsMen.cost.wood || resources.clay.total < resources.combatUnits.clubsMen.cost.clay || resources.stone.total < resources.combatUnits.clubsMen.cost.stone" ng-controller="barracksController" ng-click= "purchaseUnit('clubsMen')">
+    +1 Clubsmen
+  </button>
+  <!-- IF not enough resources! -->
+  <button type="button" class="btn btn-warning" ng-disabled="true" ng-show="resources.food.total < resources.combatUnits.clubsMen.cost.food || resources.wood.total < resources.combatUnits.clubsMen.cost.wood || resources.clay.total < resources.combatUnits.clubsMen.cost.clay || resources.stone.total < resources.combatUnits.clubsMen.cost.stone">
+    Need more resources!
+  </button>
+</div> 
+
+
+<div class = "panel panel-barracks">
+<h1 align="center">Archer</h1>
+<hr>
+  <table>
+    <tr>
+      <th><img src="res/foodMenu.png" alt="food"></th>
+      <th><img src="res/woodMenu.png" alt="wood"></th>
+      <th><img src="res/clayMenu.png" alt="clay"></th>
+      <th><img src="res/stoneMenu.png" alt="stone"></th>              
+    </tr>
+    <tr>
+      <td>-{{resources.combatUnits.archer.cost.food}}</td>
+      <td>-{{resources.combatUnits.archer.cost.wood}}</td>
+      <td>-{{resources.combatUnits.archer.cost.clay}}</td>
+      <td>-{{resources.combatUnits.archer.cost.stone}}</td>
+    </tr>
+  </table>
+  <br>
+  <button type="button" class="btn btn-success" ng-hide="resources.food.total < resources.combatUnits.archer.cost.food || resources.wood.total < resources.combatUnits.archer.cost.wood || resources.clay.total < resources.combatUnits.archer.cost.clay || resources.stone.total < resources.combatUnits.archer.cost.stone" ng-controller="barracksController" ng-click= "purchaseUnit('archer')">
+    +1 Archer
+  </button>
+  <!-- IF not enough resources! -->
+  <button type="button" class="btn btn-warning" ng-disabled="true" ng-show="resources.food.total < resources.combatUnits.archer.cost.food || resources.wood.total < resources.combatUnits.archer.cost.wood || resources.clay.total < resources.combatUnits.archer.cost.clay || resources.stone.total < resources.combatUnits.archer.cost.stone">
+    Need more resources!
+  </button>
+</div> 
+
+
+
+<div class = "panel panel-barracks">
+<h1 align="center">Horsemen</h1>
+<hr>
+  <table>
+    <tr>
+      <th><img src="res/foodMenu.png" alt="food"></th>
+      <th><img src="res/woodMenu.png" alt="wood"></th>
+      <th><img src="res/clayMenu.png" alt="clay"></th>
+      <th><img src="res/stoneMenu.png" alt="stone"></th>              
+    </tr>
+    <tr>
+      <td>-{{resources.combatUnits.horseMen.cost.food}}</td>
+      <td>-{{resources.combatUnits.horseMen.cost.wood}}</td>
+      <td>-{{resources.combatUnits.horseMen.cost.clay}}</td>
+      <td>-{{resources.combatUnits.horseMen.cost.stone}}</td>
+    </tr>
+  </table>
+  <br>
+  <button type="button" class="btn btn-success" ng-hide="resources.food.total < resources.combatUnits.horseMen.cost.food || resources.wood.total < resources.combatUnits.horseMen.cost.wood || resources.clay.total < resources.combatUnits.horseMen.cost.clay || resources.stone.total < resources.combatUnits.horseMen.cost.stone" ng-controller="barracksController" ng-click= "purchaseUnit('horseMen')">
+    +1 Horsemen
+  </button>
+  <!-- IF not enough resources! -->
+  <button type="button" class="btn btn-warning" ng-disabled="true" ng-show="resources.food.total < resources.combatUnits.horseMen.cost.food || resources.wood.total < resources.combatUnits.horseMen.cost.wood || resources.clay.total < resources.combatUnits.horseMen.cost.clay || resources.stone.total < resources.combatUnits.horseMen.cost.stone">
+    Need more resources!
+  </button>
+</div> 
+
+
+<div class = "panel panel-barracks">
+<h1 align="center">Swordsmen</h1>
+<hr>
+  <table>
+    <tr>
+      <th><img src="res/foodMenu.png" alt="food"></th>
+      <th><img src="res/woodMenu.png" alt="wood"></th>
+      <th><img src="res/clayMenu.png" alt="clay"></th>
+      <th><img src="res/stoneMenu.png" alt="stone"></th>              
+    </tr>
+    <tr>
+      <td>-{{resources.combatUnits.swordsMen.cost.food}}</td>
+      <td>-{{resources.combatUnits.swordsMen.cost.wood}}</td>
+      <td>-{{resources.combatUnits.swordsMen.cost.clay}}</td>
+      <td>-{{resources.combatUnits.swordsMen.cost.stone}}</td>
+    </tr>
+  </table>
+  <br>
+  <button type="button" class="btn btn-success" ng-hide="resources.food.total < resources.combatUnits.swordsMen.cost.food || resources.wood.total < resources.combatUnits.swordsMen.cost.wood || resources.clay.total < resources.combatUnits.swordsMen.cost.clay || resources.stone.total < resources.combatUnits.swordsMen.cost.stone" ng-controller="barracksController" ng-click= "purchaseUnit('swordsMen')">
+    +1 Swordsmen
+  </button>
+  <!-- IF not enough resources! -->
+  <button type="button" class="btn btn-warning" ng-disabled="true" ng-show="resources.food.total < resources.combatUnits.swordsMen.cost.food || resources.wood.total < resources.combatUnits.swordsMen.cost.wood || resources.clay.total < resources.combatUnits.swordsMen.cost.clay || resources.stone.total < resources.combatUnits.swordsMen.cost.stone">
+    Need more resources!
+  </button>
+</div> 
+
+
+<div class = "panel panel-barracks">
+<h1 align="center">Catapult</h1>
+<hr>
+  <table>
+    <tr>
+      <th><img src="res/foodMenu.png" alt="food"></th>
+      <th><img src="res/woodMenu.png" alt="wood"></th>
+      <th><img src="res/clayMenu.png" alt="clay"></th>
+      <th><img src="res/stoneMenu.png" alt="stone"></th>              
+    </tr>
+    <tr>
+      <td>-{{resources.combatUnits.catapult.cost.food}}</td>
+      <td>-{{resources.combatUnits.catapult.cost.wood}}</td>
+      <td>-{{resources.combatUnits.catapult.cost.clay}}</td>
+      <td>-{{resources.combatUnits.catapult.cost.stone}}</td>
+    </tr>
+  </table>
+  <br>
+  <button type="button" class="btn btn-success" ng-hide="resources.food.total < resources.combatUnits.catapult.cost.food || resources.wood.total < resources.combatUnits.catapult.cost.wood || resources.clay.total < resources.combatUnits.catapult.cost.clay || resources.stone.total < resources.combatUnits.catapult.cost.stone" ng-controller="barracksController" ng-click= "purchaseUnit('catapult')">
+    +1 Catapult
+  </button>
+  <!-- IF not enough resources! -->
+  <button type="button" class="btn btn-warning" ng-disabled="true" ng-show="resources.food.total < resources.combatUnits.catapult.cost.food || resources.wood.total < resources.combatUnits.catapult.cost.wood || resources.clay.total < resources.combatUnits.catapult.cost.clay || resources.stone.total < resources.combatUnits.catapult.cost.stone">
+    Need more resources!
+  </button>
+</div> 
+
+
+<div class = "panel panel-barracks">
+<h1 align="center">Priest</h1>
+<hr>
+  <table>
+    <tr>
+      <th><img src="res/foodMenu.png" alt="food"></th>
+      <th><img src="res/woodMenu.png" alt="wood"></th>
+      <th><img src="res/clayMenu.png" alt="clay"></th>
+      <th><img src="res/stoneMenu.png" alt="stone"></th>              
+    </tr>
+    <tr>
+      <td>-{{resources.combatUnits.priest.cost.food}}</td>
+      <td>-{{resources.combatUnits.priest.cost.wood}}</td>
+      <td>-{{resources.combatUnits.priest.cost.clay}}</td>
+      <td>-{{resources.combatUnits.priest.cost.stone}}</td>
+    </tr>
+  </table>
+  <br>
+  <button type="button" class="btn btn-success" ng-hide="resources.food.total < resources.combatUnits.priest.cost.food || resources.wood.total < resources.combatUnits.priest.cost.wood || resources.clay.total < resources.combatUnits.priest.cost.clay || resources.stone.total < resources.combatUnits.priest.cost.stone" ng-controller="barracksController" ng-click= "purchaseUnit('priest')">
+    +1 Priest
+  </button>
+  <!-- IF not enough resources! -->
+  <button type="button" class="btn btn-warning" ng-disabled="true" ng-show="resources.food.total < resources.combatUnits.priest.cost.food || resources.wood.total < resources.combatUnits.priest.cost.wood || resources.clay.total < resources.combatUnits.priest.cost.clay || resources.stone.total < resources.combatUnits.priest.cost.stone">
+    Need more resources!
+  </button>
+</div> 
+</div>
+</div>

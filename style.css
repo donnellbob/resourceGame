@@ -61,6 +61,15 @@
   display: inline;
 
 }
+.panel-default td{
+  padding: 5;
+  width: 30%;
+}
+
+.panel-default th{
+  padding: 5;
+  width: 30%;
+}
 .panel-default button{
   float: right;
   margin-right: 15px;
@@ -137,7 +146,7 @@
 }
 
 .panel-combat table{
-  width: 81%;
+  width: 100%;
   margin-left: 50px;
   font-size: 24px;
   font-weight: bold;
@@ -150,6 +159,16 @@
   width : 140px;
 }
 
+.panel-combat td{
+  width: 120;
+  /*padding: 5;*/
+}
+
+.panel-combat th{
+  width: 120;
+  /*padding: 5;*/
+
+}
 /*Disables the increment buttons on inputs boxes (I don't like them personally)*/
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -158,6 +177,72 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /*Makes combat look better :)*/
-td, th{
+/*td, th{
   padding: 5;
+  width: 30%;
+}
+*/
+
+.nano {
+  height: 650px;
+  }
+.nano .nano-content { padding: 20px; }
+.nano .pane   { background: #888; }
+.nano .slider { background: #111; }
+
+.panel-barracks{
+  height: 45%;
+  width: 1000px;
+  margin-left: 75px;
+  margin-bottom: 50px;
+
+}
+
+.panel-barracks img{
+  width: 60px;
+  height: 60px;
+
+}
+
+.panel-barracks table{
+  width:100%;
+  margin-left: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  display: inline;
+
+}
+.panel-barracks td{
+  padding: 5;
+  width: 30%;
+}
+
+.panel-barracks th{
+  padding: 5;
+  width: 30%;
+}
+.panel-barracks button{
+  float: right;
+  margin-right: 15px;
+}
+
+/*MAKES HR's pretty!!!!*/
+hr{
+    width: 35%;
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+    margin-bottom: 0;
+}
+hr:before { /* Not really supposed to work, but does */
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
 }
